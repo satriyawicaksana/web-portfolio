@@ -1,0 +1,251 @@
+html{
+  scrollbar-color: darken(#4BFABB, 20%) #fff;
+  scrollbar-width: thin;  
+}
+::-webkit-scrollbar{
+    width: 5px;
+}
+::-webkit-scrollbar-track{
+    background: #fff;
+}
+::-webkit-scrollbar-thumb{
+    background: darken(#4BFABB, 20%);
+    border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover{
+    background: darken(#4BFABB, 25%);
+}
+nav{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    @include overflow(hidden);
+    z-index: 2;
+}
+.menu-background{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: 2;
+    left: -200vw;
+    @include transition(.5s ease);
+    @include layout_flex(row, center, center);
+    @media(max-width:768px){
+        left: 0;
+        top: -200vh;
+    }
+}
+.menu-checkbox:checked ~ .menu-background{
+    left: 0;
+    @media(max-width:768px){
+        top: 0;
+    }
+}
+.menu-background-left{
+    width: 80%;
+    height: 100vh;
+    background-color: #fff;
+    @media(max-width:768px){
+        width: 100%;
+    }
+}
+.menu-background-left > div{
+    width: 100%;
+    height: 100%;
+    padding: 10vh 10vw;
+    @include layout_flex(column, space-between, flex-start);
+}
+.menu-background-left > div > div:last-child{
+    line-height: 1.8em;
+    @media(max-width:414px){
+        font-size: .8em;
+    }
+    a{
+        text-decoration: none;
+        color: #464646;
+    }
+}
+.menu-background-left ul{
+    list-style: none;
+}
+.menu-background-left li{
+    font-size: 1.8em;
+    font-weight: 700;
+    line-height: 1.3em;
+    @media(max-width:414px){
+        font-size: 1.3em;
+        line-height: 1.5em;
+    }
+}
+.menu-background-left li a{
+    text-decoration: none;
+    color: #464646;
+    z-index: 100;
+}
+span.mask {
+    display: inline-block;
+    position: relative;
+    @include overflow(hidden);
+    span{
+        display: block;
+        padding: 0 10px;
+        
+    }
+}
+span.mask span:before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 30%;
+    left: 0px;
+    right: 0px;
+    height: .5em;
+    background: #24976D;
+    @include percentOpacity(50);
+    z-index: 2;
+    @include transition(transform 300ms cubic-bezier(1, 0, 0, 1));
+    @include transformStyle(translateX(-100%));
+}
+.menu-background-left li a:hover > span.mask span:before{
+    @include transformStyle(translateX(0));
+}
+.menu-background-left img{
+    width: 5vw;
+    @media(max-width:768px){
+        width: 10vw;
+    }
+    @media(max-width:414px){
+        width: 15vw;
+    }
+}
+.menu-background-right{
+    width: 20%;
+    height: 100vh;
+    @include percentOpacity(80);
+    background-color: #4BFABB;
+    @media(max-width:768px){
+        display: none;
+    }
+}
+label{
+    position: fixed;
+    left: 1em;
+    top: 50%;
+    @include transformStyle(translateY(-50%));
+    width: 55px;
+    height: 40px;
+    @include layout_flex(row,flex-start,center);
+    @media(max-width:768px){
+        top: 2em;
+        left: auto;
+        right: 0;
+    }
+}
+label, .socials{
+    cursor: pointer;
+    z-index: 3;
+}
+.hamburger-menu{
+    width: 30px;
+    height: 12px;
+    @include layout_flex(column, space-between, flex-end);
+    .menu-line-1, .menu-line-2, .menu-line-3{
+        background-color: #24976D;
+        height: 2px;
+    }
+    .menu-line{
+        @include transition(.2s);
+    }
+    .menu-line-1{
+        width: 10px;
+    }
+    .menu-line-2{
+        width: 20px;
+    }
+    .menu-line-3{
+        width: 15px;
+    }
+}
+$length: (1: 20px, 2: 30px, 3: 25px);
+@for $i from 1 through 3{
+    label:hover > .hamburger-menu .menu-line-#{$i}{
+        width: map-get($length,$i);
+    }
+}
+.menu-checkbox:checked ~ label .menu-line{
+    width: 20px;
+}
+.menu-checkbox:checked ~ label .menu-line-1{
+    @include transformStyle(rotateZ(45deg), 3px 50%);
+}
+.menu-checkbox:checked ~ label .menu-line-2{
+    @include percentOpacity(0);
+}
+.menu-checkbox:checked ~ label .menu-line-3{
+    @include transformStyle(rotateZ(-45deg), 3px 50%);
+}
+.text-menu{
+    width: 15px;
+    height: 40px;
+    @include layout_flex(row, center, center);
+    margin-left: 5px;
+    @media(max-width:768px){
+        display: none;
+    }
+    p{
+        text-transform: uppercase;
+        font-size: .6em;
+        font-weight: 700;
+        letter-spacing: .1em;
+        @include transformStyle(rotateZ(-90deg));
+    }
+}
+
+
+/* Social link */
+.socials{
+    position: fixed;
+    right: 1em;
+    top: 50%;
+    @include transformStyle(translateY(-50%));
+    @media(max-width:768px){
+        right: auto;
+        top: auto;
+        bottom: 1em;
+        @include transformStyle(translateY(0));
+        width: 100%;
+        @include layout_flex(row, center, center);
+    }
+    > div{
+        margin: 1em 0;
+        @include layout_flex(row,flex-start, flex-start);
+        @media(max-width:768px){
+            margin: 0 1em;
+        }
+    }
+}
+@mixin social-icon($url){
+    display:block;
+    width:16px;
+    height: 16px;
+    background:url($url);
+    background-size: 16px;
+    background-repeat: no-repeat;
+}
+.social-1{
+    @include social-icon('../img/facebook.png');
+}
+.social-2{
+    @include social-icon('../img/instagram.png');
+}
+.social-3{
+    @include social-icon('../img/twitter.png');
+}
+@for $i from 1 through 3{
+    .social-#{$i}:hover{
+        @include transformStyle(scale(1.5));
+        @include transition(.3s);
+    }
+}

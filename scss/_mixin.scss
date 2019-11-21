@@ -1,0 +1,30 @@
+@mixin layout-flex($direction: row, $justify: flex-start, $align: flex-start){
+    display: flex;
+    -webkit-flex-direction: $direction;
+    flex-direction: $direction;
+    -webkit-justify-content: $justify;
+    justify-content: $justify;
+    align-items: $align;
+}
+@mixin percentOpacity($opacity: 0){
+    opacity: $opacity/100;
+    filter: alpha(opacity=$opacity);
+}
+@mixin transformStyle($transform, $origin: 50% 50% 0){
+    -webkit-transform: $transform;
+    -moz-transform: $transform;
+    -ms-transform: $transform;
+    transform: $transform;
+    -webkit-transform-origin: $origin;
+    -moz-transform-origin: $origin;
+    -ms-transform-origin: $origin;
+    transform-origin: $origin;
+}
+@mixin transition($transition...){
+    -webkit-transition: $transition;
+    transition: $transition;
+}
+@mixin overflow($overflow){
+    overflow-x: $overflow;
+    overflow-y: $overflow;
+}
