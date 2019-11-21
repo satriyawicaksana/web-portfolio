@@ -2,7 +2,7 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox
 
 workbox.routing.registerRoute(
   /\.js$/,
-  new workbox.strategies.StaleWhileRevalidate({
+  new workbox.strategies.CacheFirst({
       cacheName: 'js-cache',
       plugins:[
             new workbox.expiration.Plugin({
@@ -14,7 +14,7 @@ workbox.routing.registerRoute(
 );
 workbox.routing.registerRoute(
   /\.css$/,
-    new workbox.strategies.StaleWhileRevalidate({
+    new workbox.strategies.CacheFirst({
         cacheName: 'css-cache',
         plugins:[
             new workbox.expiration.Plugin({
@@ -26,11 +26,22 @@ workbox.routing.registerRoute(
 );
 workbox.routing.registerRoute(
     /\.(?:png|jpg|jpeg)$/,
-    new workbox.strategies.StaleWhileRevalidate({
+    new workbox.strategies.CacheFirst({
         cacheName: 'image-cache',
         plugins:[
             new workbox.expiration.Plugin({
                 maxEntries: 8,
+                maxAgeSeconds: 7 * 24 * 60 * 60,
+            })
+        ]
+    })
+);
+workbox.routing.registerRoute(
+    /^https:\/\/fonts\.googleapis\.com/,
+    new workbox.strategies.CacheFirst({
+        cacheName: 'google-fonts',
+        plugins: [
+            new workbox.expiration.Plugin({
                 maxAgeSeconds: 7 * 24 * 60 * 60,
             })
         ]
@@ -95,10 +106,10 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "service-worker.js",
-    "revision": "4e8a49a8a30f8a99433b73b7c9055c80"
+    "revision": "3b74239aacfdc940fea95c167e28a755"
   },
   {
     "url": "workbox-config.js",
-    "revision": "c5b978548c0dc4f7097232b572f3494c"
+    "revision": "3a08d6bd37b8890ec97d9935d943779a"
   }
 ]);
