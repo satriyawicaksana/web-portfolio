@@ -2,7 +2,7 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox
 
 workbox.routing.registerRoute(
   /\.js$/,
-  new workbox.strategies.StaleWhileRevalidate({
+  new workbox.strategies.CacheFirst({
       cacheName: 'js-cache',
       plugins:[
             new workbox.expiration.Plugin({
@@ -14,7 +14,7 @@ workbox.routing.registerRoute(
 );
 workbox.routing.registerRoute(
   /\.css$/,
-    new workbox.strategies.StaleWhileRevalidate({
+    new workbox.strategies.CacheFirst({
         cacheName: 'css-cache',
         plugins:[
             new workbox.expiration.Plugin({
@@ -26,7 +26,7 @@ workbox.routing.registerRoute(
 );
 workbox.routing.registerRoute(
     /\.(?:png|jpg|jpeg)$/,
-    new workbox.strategies.StaleWhileRevalidate({
+    new workbox.strategies.CacheFirst({
         cacheName: 'image-cache',
         plugins:[
             new workbox.expiration.Plugin({
@@ -38,7 +38,7 @@ workbox.routing.registerRoute(
 );
 workbox.routing.registerRoute(
     /^https:\/\/fonts\.googleapis\.com/,
-    new workbox.strategies.StaleWhileRevalidate({
+    new workbox.strategies.CacheFirst({
         cacheName: 'google-fonts',
         plugins: [
             new workbox.expiration.Plugin({
