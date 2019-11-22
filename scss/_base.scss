@@ -368,11 +368,8 @@ Experience Style
     }
 }
 .work-details > div:nth-child(odd) > p:nth-child(2) {
-  font-size: 1.2em;
+  font-size: 1.1em;
   font-weight: 900;
-    @media(max-width:375px){
-        font-size: 1.1em;
-    }
     @media(max-width:330px){
         font-size: .9em;
     }
