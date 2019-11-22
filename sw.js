@@ -25,12 +25,11 @@ workbox.routing.registerRoute(
     })
 );
 workbox.routing.registerRoute(
-    /\.(?:png|jpg|jpeg)$/,
+    /\.(?:jpeg|png|jpg)$/,
     new workbox.strategies.CacheFirst({
         cacheName: 'image-cache',
         plugins:[
             new workbox.expiration.Plugin({
-                maxEntries: 8,
                 maxAgeSeconds: 7 * 24 * 60 * 60,
             })
         ]
@@ -59,6 +58,18 @@ workbox.precaching.precacheAndRoute([
   {
     "url": "css/main.css",
     "revision": "f5230a427515cd17c72b197cb64e092f"
+  },
+  {
+    "url": "icon/144.png",
+    "revision": "1665b4175d92f2540c28b3787b8d7618"
+  },
+  {
+    "url": "icon/192.png",
+    "revision": "97b5e1c93454e2f9768f95b569846e82"
+  },
+  {
+    "url": "icon/512.png",
+    "revision": "3ce73fcfb4553693fa6040ef8f5cdfd7"
   },
   {
     "url": "img/facebook.png",
@@ -94,7 +105,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "index.html",
-    "revision": "36f80141d5247dc3561c0477b91fcad8"
+    "revision": "5c85f058f9c7f4ff1c5e268639e4d9ba"
   },
   {
     "url": "script/jquery-3.4.1.min.js",
@@ -106,7 +117,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "service-worker.js",
-    "revision": "3b74239aacfdc940fea95c167e28a755"
+    "revision": "22cc3794a6c9964b8aec406b6d937817"
   },
   {
     "url": "workbox-config.js",

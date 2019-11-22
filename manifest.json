@@ -1,0 +1,26 @@
+{
+  "name": "Satriya Wicaksana CV",
+  "short_name": "CV Satriya",
+  "theme_color": "#4bfabb",
+  "background_color": "#24976d",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+      {
+        "src": "icon/512.png",
+        "type": "image/png",
+        "sizes": "512x512 384x384"
+      },
+      {
+        "src": "icon/192.png",
+        "type": "image/png",
+        "sizes": "192x192 152x152"
+      },
+      {
+        "src": "icon/144.png",
+        "type": "image/png",
+        "sizes": "144x144 128x128 96x96 72x72 32x32 16x16"
+      }
+  ]
+}
