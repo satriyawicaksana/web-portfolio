@@ -708,8 +708,6 @@ Experience Style
 .work-details > div {
   margin: 1vw;
   height: 200px;
-  overflow-x: visible;
-  flex-wrap: nowrap;
   display: flex;
   -webkit-flex-direction: column;
   flex-direction: column;
@@ -719,13 +717,15 @@ Experience Style
   @media (max-width: 940px) {
     .work-details > div {
       height: 200px;
-      width: 80%;
+      width: 100%;
       display: flex;
       -webkit-flex-direction: column;
       flex-direction: column;
       -webkit-justify-content: center;
       justify-content: center;
-      align-items: center; } }
+      align-items: center;
+      overflow-x: visible;
+      flex-wrap: nowrap; } }
   @media (max-width: 512px) {
     .work-details > div {
       height: 100px; } }

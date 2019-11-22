@@ -340,15 +340,15 @@ Experience Style
     }
 }
 .work-details > div {
-  margin: 1vw;
-  height: 200px;
-    overflow-x: visible;
-    flex-wrap: nowrap;
-  @include layout_flex(column, center, flex-end);
+    margin: 1vw;
+    height: 200px;
+    @include layout_flex(column, center, flex-end);
      @media(max-width: 940px){
         height: 200px;
-         width: 80%;
+         width: 100%;
          @include layout_flex(column, center, center);
+         overflow-x: visible;
+         flex-wrap: nowrap;
     }
     @media(max-width:512px){
         height: 100px;
