@@ -708,6 +708,8 @@ Experience Style
 .work-details > div {
   margin: 1vw;
   height: 200px;
+  overflow-x: visible;
+  flex-wrap: nowrap;
   display: flex;
   -webkit-flex-direction: column;
   flex-direction: column;
@@ -744,11 +746,8 @@ Experience Style
       font-size: .8em; } }
 
 .work-details > div:nth-child(odd) > p:nth-child(2) {
-  font-size: 1.3em;
+  font-size: 1.2em;
   font-weight: 900; }
-  @media (max-width: 500px) {
-    .work-details > div:nth-child(odd) > p:nth-child(2) {
-      font-size: 1.2em; } }
   @media (max-width: 375px) {
     .work-details > div:nth-child(odd) > p:nth-child(2) {
       font-size: 1.1em; } }

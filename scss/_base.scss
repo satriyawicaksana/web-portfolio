@@ -342,6 +342,8 @@ Experience Style
 .work-details > div {
   margin: 1vw;
   height: 200px;
+    overflow-x: visible;
+    flex-wrap: nowrap;
   @include layout_flex(column, center, flex-end);
      @media(max-width: 940px){
         height: 200px;
@@ -366,11 +368,8 @@ Experience Style
     }
 }
 .work-details > div:nth-child(odd) > p:nth-child(2) {
-  font-size: 1.3em;
+  font-size: 1.2em;
   font-weight: 900;
-    @media(max-width:500px){
-        font-size: 1.2em;
-    }
     @media(max-width:375px){
         font-size: 1.1em;
     }
